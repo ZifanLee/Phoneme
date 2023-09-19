@@ -1,6 +1,8 @@
 import numpy
 import numpy as np
 import torch
+import tqdm
+import time
 
 DATA_ROOT = './timit_11/'
 
@@ -44,3 +46,8 @@ print_sample(tensor_label)
 x = torch.from_numpy(numpy.array([True, True, True, False, True]))
 #y = np.array(x, dtype=np.bool_)
 print(x.numpy().astype(np.int64).sum().item())
+
+# tqdm显示有坑，实际运行没问题就好
+for epoch in tqdm.tqdm(range(10),total=10):
+    time.sleep(1)
+    print(epoch,'\n')
